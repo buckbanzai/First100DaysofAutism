@@ -26,7 +26,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="www\config.xml" />
+<<<<<<< HEAD
     <Content Include="www\mchat.js" />
+=======
+>>>>>>> b10c83590b6f4d1d0b95a5552c2beab20229fe11
     <Content Include="www\weeklyplan.html" />
     <Content Include="www\icon.png" />
     <Content Include="www\index.html" />
