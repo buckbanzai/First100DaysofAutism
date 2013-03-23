@@ -3,3 +3,11 @@
 
 # JetBrains IDE
 .idea
+
+#VS 2012
+*.sln
+*.suo
+*.tfignore
+*.csproj.user
+First100DaysUI/obj/
+First100DaysUI/bin/

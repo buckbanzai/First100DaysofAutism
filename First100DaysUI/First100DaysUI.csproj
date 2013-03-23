@@ -17,17 +17,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="www\app.css" />
-    <Content Include="www\app.js">
-      <DependentUpon>app.ts</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="www\app.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="www\config.xml" />
     <Content Include="www\icon.png" />
     <Content Include="www\index.html" />
+    <TypeScriptCompile Include="www\mChatScoring.ts" />
+    <Content Include="www\mChatScoring.js">
+      <DependentUpon>mChatScoring.ts</DependentUpon>
+    </Content>
     <Content Include="www\web.config" />
     <Content Include="web.config" />
     <None Include="web.Debug.config">
