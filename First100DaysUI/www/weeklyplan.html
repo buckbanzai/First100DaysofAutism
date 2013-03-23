@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css"
+        type="text/css">
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript">
+    </script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"
+        type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        window.currentTeam = 0;
+        $(document).bind("mobileinit", function () {
+            // Make your jQuery Mobile framework configuration changes here!
+            $.support.cors = true;
+            $.mobile.allowCrossDomainPages = true;
+        });</script>
+</head>
+<body>
+    <div data-role="page" id="menu" data-theme="d" data-add-back-btn="true">
+        <div data-role="header" data-theme="d">
+            <h1>Weekly Action Plan - Week 1
+            </h1>
+        </div>
+        <!-- /header -->
+        <div data-role="content">
+            <!-- Main Menu -->
+<table data-role="table" id="bookList" class="table-stroke table-stripe">
+ 
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th><abbr title="Year of Publication">Year</abbr></th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <tr>
+      <th>The Grapes of Wrath</th>
+      <td>John Steinbeck</td>
+      <td>1939</td>
+    </tr>
+    <tr>
+      <th>The Trial</th>
+      <td>Franz Kafka</td>
+      <td>1925</td>
+    </tr>
+    <tr>
+      <th>The Hobbit</th>
+      <td>J. R. R. Tolkien</td>
+      <td>1937</td>
+    </tr>
+    <tr>
+      <th>A Tale of Two Cities</th>
+      <td>Charles Dickens</td>
+      <td>1859</td>
+    </tr>
+  </tbody>
+ 
+</table>
+        </div>
+        <!-- /content -->
+    </div>
+    <!-- /page -->
+    <!-- begin mchat -->
+        <div data-role="page" id="action1" data-theme="d" data-add-back-btn="true">
+        <div data-role="header" data-theme="d">
+            <h1>sdfdsf dsf
+            </h1>
+        </div>
+        <!-- /header -->
+        <div data-role="content">
+            <!-- Main Menu -->
+            <ul data-role="listview" data-inset="true">
+                <li><a href="">Yes</a></li>
+                <li><a href="">No</a></li>
+
+            </ul>
+        </div>
+        <!-- /content -->
+    </div>
+    <!-- /page -->
+    <!-- end mchat -->
+</body>
+</html>

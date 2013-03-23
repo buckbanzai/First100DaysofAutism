@@ -26,6 +26,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="www\config.xml" />
+    <Content Include="www\mchat.js" />
+    <Content Include="www\weeklyplan.html" />
     <Content Include="www\icon.png" />
     <Content Include="www\index.html" />
     <Content Include="www\web.config" />
