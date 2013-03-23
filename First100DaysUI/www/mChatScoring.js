@@ -13,6 +13,7 @@ function mChatScoreUp(question) {
 }
 function mChatNext(question) {
     //future stuff here
+    location.assign("#mchat".concat((question + 1).toString()));
     if(question == 23) {
         if(score < 3) {
             document.getElementById("blurb").innerHTML = "Your responses suggest that your child&#39;s behaviors are within the expected range of development. However, if you or your healthcare provider has persistent concerns about autism or other developmental delays, you should pursue evaluation by a specialist. This questionnaire is designed to screen for autism, not other developmental issues.<br/>If you have concerns about any area of your child&#39;s development or behavior, please discuss these concerns with your child&#39;s doctor.";
