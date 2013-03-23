@@ -1,5 +1,5 @@
 function mChatYes(question) {
-    if(mchat.survey[question].answers.
+    //if(mchat.survey[question].answers.
     alert(score.toString());
 }
 function mChatNo(question) {
