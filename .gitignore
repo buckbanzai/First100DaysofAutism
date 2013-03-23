@@ -9,3 +9,9 @@
 *.suo
 *.tfignore
 *.csproj.user
+*.dll
+*.map
+*.pdb
+*.cs
+*.cache
+*.config
