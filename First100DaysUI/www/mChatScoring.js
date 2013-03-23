@@ -1,5 +1,4 @@
-function mChatYes() {
-    score++;
+function mChatYes(question) {
     alert(score.toString());
 }
 // Local variables

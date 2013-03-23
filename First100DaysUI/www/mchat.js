@@ -96,6 +96,6 @@ var mchat = {
     scoreRanges: [
         {minScore: 0, maxScore: 2, message: "Low" },
         {minScore: 3, maxScore: 6, message: "Elevated" },
-        {minScore: 7, maxScore: 50000, message: "Hgh" }
+        {minScore: 7, maxScore: 50000, message: "High" }
     ]
 };
