@@ -18,7 +18,7 @@ var page1 = {
     {
         /* This item goes to another page with several child tasks on it */
         id: "Action_Week_1_Question2",
-        header: "Specialist appointment",
+        header: "Specialist appointments",
         text: "Your pediatrician may recommend appointments with specialists.",
         page: {
             id: "makeAppt",
