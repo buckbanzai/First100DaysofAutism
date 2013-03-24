@@ -19,18 +19,18 @@
 <body>
 <div data-role="page" data-theme="d" id="home-page" class="grid-page" data-dom-cache="false">
     <div data-role="header" data-theme="d" data-icon="bars">
-        <a href="index.html" data-role="button" data-icon="arrow-l" data-inline="true">Back</a>
+        <a href="index.html" data-role="button" data-icon="arrow-l" data-inline="true" data-ajax="false">Back</a>
         <h1>Settings</h1>
     </div>
     <div data-role="content">
-        <!-- PUT CONTENT HERE //-->
+        <p style="text-align: center">Settings will be here</p>
     </div>
     <div class="footer" data-role="footer" data-theme="d" data-position="fixed">
     </div>
 </div>
 <script type="text/javascript">
     // For now
-    localStorage.removeItem("first100launch");
+    resetFirstLaunch();
 
     var reloadFooter = function() {
         $(".footer").load("partials/footer.html", function() {
