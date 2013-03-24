@@ -11,9 +11,9 @@ var page1 = {
         /* This item is a single task, there isn't anything else underneath it, I added pagetype=task */
         id: "Action_Week_1_Question1",
         header: "Pediatrician appointment",
-        text: "Make an appointment with your child&apos;s pediatrician. [[LINK]]",
+        text: "Make an appointment with your child&apos;s pediatrician.<br/>[[LINK]]",
         linkId: "Resource_About_Diagnosis_1",
-        linkText: "Get more information"
+        linkText: "Resource Center: About Autism"
     },
     {
         /* This item goes to another page with several child tasks on it */
