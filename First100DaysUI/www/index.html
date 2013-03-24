@@ -14,7 +14,7 @@
     <script src="mChatScoring.js" type="text/javascript"></script>
     <script type="text/javascript">
         window.currentTeam = 0;
-        $(document).bind("<div id="footer" data-role="footer" data-theme="d" data-position="fixed"></div>", function () {
+        $(document).bind("mobileinit", function () {
             // Make your jQuery Mobile framework configuration changes here!
             $.support.cors = true;
             $.mobile.allowCrossDomainPages = true;
@@ -52,7 +52,7 @@
                 <p>Text Here...</p>
             </a></li>
         </ul>
-    </div><div id="footer" data-role="footer" data-theme="d" data-position="fixed"></div>
+    </div><!-- /content -->
     <div data-role="footer" data-theme="none">
         <h6>Hackathon for Autism - Eventbrite</h6>
     </div><!-- /footer -->

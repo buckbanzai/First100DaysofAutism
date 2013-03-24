@@ -3,3 +3,8 @@ c:\users\liam_000\documents\visual studio 2012\Projects\First100DaysUI\First100D
 c:\users\liam_000\documents\visual studio 2012\Projects\First100DaysUI\First100DaysUI\obj\Debug\First100DaysUI.csprojResolveAssemblyReference.cache
 c:\users\liam_000\documents\visual studio 2012\Projects\First100DaysUI\First100DaysUI\obj\Debug\First100DaysUI.dll
 c:\users\liam_000\documents\visual studio 2012\Projects\First100DaysUI\First100DaysUI\obj\Debug\First100DaysUI.pdb
+\\psf\Home\Projects\Autism\First100DaysofAutism\First100DaysUI\obj\Debug\First100DaysUI.csprojResolveAssemblyReference.cache
+\\psf\Home\Projects\Autism\First100DaysofAutism\First100DaysUI\obj\Debug\First100DaysUI.dll
+\\psf\Home\Projects\Autism\First100DaysofAutism\First100DaysUI\obj\Debug\First100DaysUI.pdb
+\\psf\Home\Projects\Autism\First100DaysofAutism\First100DaysUI\bin\First100DaysUI.dll
+\\psf\Home\Projects\Autism\First100DaysofAutism\First100DaysUI\bin\First100DaysUI.pdb

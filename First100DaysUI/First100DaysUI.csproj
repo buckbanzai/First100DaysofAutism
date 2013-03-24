@@ -23,7 +23,7 @@
     <Content Include="www\icon.png" />
     <Content Include="www\index.html" />
     <TypeScriptCompile Include="www\mChatScoring.ts" />
-    <Content Include="www\mchat.html" />
+    <Content Include="www\mchat.js" />
     <Content Include="www\mChatScoring.js">
       <DependentUpon>mChatScoring.ts</DependentUpon>
     </Content>
