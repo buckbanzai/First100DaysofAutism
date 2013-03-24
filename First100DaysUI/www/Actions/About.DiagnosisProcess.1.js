@@ -42,7 +42,7 @@ var page1 = {
 var page2 = {
     id: "Resource_About_Diagnosis_1",
     header: "Why does my child need a diagnosis of autism?",
-    text: "<em>You may wonder: why does my child need a diagnosis of autism? That&apos;s a fair question to ask - especially when no one is able to offer you a cure.</em>.<br/>A thorough and detailed diagnosis provides important information about your child&apos;s behavior and development. It can help create a roadmap for treatment by identifying your child&apos;s specific strengths and challenges and providing useful information about which needs and skills should be targeted for effective intervention. A diagnosis is often required to access autism-specific services through early intervention programs or your local school district",
+    text: "<em>You may wonder: why does my child need a diagnosis of autism? That&apos;s a fair question to ask &mdash; especially when no one is able to offer you a cure.</em>.<br/>A thorough and detailed diagnosis provides important information about your child&apos;s behavior and development. It can help create a roadmap for treatment by identifying your child&apos;s specific strengths and challenges and providing useful information about which needs and skills should be targeted for effective intervention. A diagnosis is often required to access autism-specific services through early intervention programs or your local school district"
 }
 
 var page3 = {
