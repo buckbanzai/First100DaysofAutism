@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="themes/theme.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css"
+        type="text/css">
+    <link rel="stylesheet" href="app.css" type="text/css">
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript">
+    </script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"
+        type="text/javascript">
+    </script>
+    <script src="mChatScoring.js" type="text/javascript"></script>
+    <script src="init.js" type="text/javascript"></script>
+
+    <script src="Actions/About.DiagnosisProcess.1.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        window.currentTeam = 0;
+        $(document).bind("mobileinit", function () {
+            // Make your jQuery Mobile framework configuration changes here!
+            $.support.cors = true;
+            $.mobile.allowCrossDomainPages = true;
+            $.mobile.autoInitializePage = true;
+        });
+
+        $(document).bind("pageinit", function () {
+
+            var builtPages = new Array();
+
+            function getText(property, value, otherwise) {
+                if (property) {
+                    return value;
+                }
+                return otherwise;
+            }
+
+            function fixText(textString, linkText, linkDest) {
+                if (linkText && linkDest) {
+                    var linkA = "";
+                    linkA += "<a href='#" + linkDest + "'>" + linkText + "</a>";
+                    return textString.replace("[[LINK]]", linkA);
+                }
+                return textString;
+            }
+
+            function createPage(id, header, footer, text, content) {
+                var elementText = "";
+                elementText += "<div data-role='page' id='" + id + "'>";
+
+                if (header) {
+                    elementText += "<div data-role='header'>";
+                    elementText += "<a href='index.html' data-role='button' data-icon='arrow-l' data-inline-'true'>Back</a>";
+                    elementText += "<h1> " + header + " </h1> </div>";
+                }
+
+                elementText += "<div data-role='content'> <p> " + text + " </p> <p></p>  " + content + "</div>";
+                //if (footer) {
+                //    elementText += "<div data-role='footer'> <p> " + footer + " </p> </div>";
+                //}
+
+                elementText += "<div data-theme='d' data-role='footer' class='footer' data-position='fixed'>";
+                elementText += "</div>";
+
+                elementText += "</div>";
+
+                return elementText;
+            }
+
+            // Returns the task text
+            function createContent(task) {
+                var elementText = "";
+                elementText += "<div data-role='collapsible' data-collapsed='false'>";
+                elementText += "<h3>" + getText(task.header, task.header, task.text) + "</h3>";
+
+                if (task.header) {
+                    elementText += "        <p>" + fixText(task.text, task.linkText, task.linkId) + "</p>";
+                    if (task.page) {
+                        elementText += "        <a href='#" + task.page.id + "'>" + " " + task.page.header + " " + "</a>";
+                    }
+                    elementText += "        <div data-role='fieldcontain'>";
+                    elementText += "            <label for='" + task.id + "_textArea'>Notes:</label>";
+                    elementText += "            <textarea id='" + task.id + "_textArea' cols='40' rows='8' data-mini='true' placeholder='Enter your notes here'></textarea>";
+                    elementText += "        </div>";
+
+                    elementText += "        <div data-role='fieldcontain'>";
+                    elementText += "            <fieldset data-role='controlgroup' data-type='horizontal' data-mini='true'>";
+                    elementText += "                <legend>Status</legend>";
+                    elementText += "                <input data-mini='true' type='radio' name='" + task.id + "_actions" + "' id='" + task.id + "_status" + "' value='on' checked='checked' />";
+                    elementText += "                <label for='" + task.id + "_status" + "'>To Do</label>";
+                    elementText += "                <input data-mini='true' type='radio' name='" + task.id + "_actions" + "' id='" + task.id + "_inprogress" + "' value='off' />";
+                    elementText += "                <label for='" + task.id + "_inprogress" + "'>In Progress</label>";
+                    elementText += "                <input data-mini='true' type='radio' name='" + task.id + "_actions" + "' id='" + task.id + "_completed" + "' value='off' />";
+                    elementText += "                <label for='" + task.id + "_completed" + "'>Completed</label>";
+                    elementText += "            </fieldset>";
+                    elementText += "        </div>";
+                }
+                elementText += "</p>";
+                elementText += "</div>";
+
+                if (task.page != null) {
+                    var builtPage = recursiveCreate(task.page);
+                    builtPages.push(builtPage);
+                }
+
+                return elementText;
+            }
+
+            // Returns the task text
+            function createContentList(tasks, header) {
+                var elementText = "";
+                elementText += "<div data-role='collapsible' data-collapsed='false'>";
+                elementText += "<p>";
+                if (header) {
+                    elementText += "<h3>" + header + "</h3>";
+                }
+
+                elementText += "<ul data-theme='d'>";
+                for (var i = 0; i < tasks.length; i++) {
+                    var task = tasks[i];
+                    elementText += "    <li>";
+                    elementText += "        <div style='font-weight:normal'>" + task.text + "</div>";
+                    if (task.page) {
+                        elementText += "        <a style='font-weight:normal' href='#" + task.page.id + "'>" + " " + task.page.header + " " + "</a>";
+                    }
+                    elementText += "        <div data-role='fieldcontain'>";
+                    elementText += "            <textarea cols='40' rows='8' data-mini='true'>take notes</textarea>";
+                    elementText += "        </div>";
+                    elementText += "    </li>";
+
+                    if (task.page != null) {
+                        var builtPage = recursiveCreate(task.page);
+                        builtPages.push(builtPage);
+                    }
+                }
+                elementText += "</ul>";
+                elementText += "</div>";
+
+                return elementText;
+            }
+
+            function recursiveCreate(page) {
+                var allPageContent = "";
+                if (page.tasks != undefined) {
+                    if (page.text) {
+                        for (var i = 0; i < page.tasks.length; i++) {
+                            var task = page.tasks[i];
+
+                            var contentString = createContent(task);
+                            allPageContent += contentString;
+                        }
+                    } else {
+                        var contentString = createContentList(page.tasks, page.header);
+                        allPageContent += contentString;
+                    }
+                }
+                return createPage(page.id, page.header, page.subtext, page.text, allPageContent);
+            }
+
+            function recursiveCreatePages(pagesX) {
+                for (var i = 0; i < pages.length; i++) {
+                    var builtPage = recursiveCreate(pages[i]);
+                    builtPages.push(builtPage);
+                }
+
+                return builtPages;
+            }
+
+            //var topPages = recursiveCreatePages(pages);
+            //var finalText = "";
+            //for (var i = 0; i < topPages.length; i++) {
+            //    if (topPages[i].indexOf("<div data-role='page' id='FIRST_PAGE'>") != -1) {
+            //        finalText = topPages[i] + finalText;
+            //    } else {
+            //        finalText += topPages[i];
+            //    }
+            //}
+
+            //$("body").append(finalText).trigger("create");
+            //if (URL.toString().indexOf("#", 0) <= 0) {
+            //    $.mobile.changePage("#" + pages[0].id, "pop", false, true);
+            //}
+
+            var reloadFooter = function () {
+                $(".footer").load("partials/footer.html", function () {
+                    $(".footer").trigger("create");
+                });
+            }
+
+            reloadFooter();
+
+        });
+
+    </script>
+</head>
+<body>
+    <div data-role='page' id='FIRST_PAGE'><div data-role='header'><a href='index.html' data-role='button' data-icon='arrow-l' data-inline-'true'>Back</a><h1> Week 1: Organize and Plan </h1> </div><div data-role='content'> <p> <strong>Schedule Evaluations</strong><br/>If your child has not had a complete workup, schedule the remainder of necessary evaluations. </p> <p></p>  <div data-role='collapsible' data-collapsed='false'><h3>Make an appointment with your child&apos;s pediatrician.</h3>        <p>Make an appointment with your child&apos;s pediatrician. <a href='#Resource_About_Diagnosis_1'>Get more information</a></p>        <div data-role='fieldcontain'>            <label for='Action_Week_1_Question1_textArea'>Notes:</label>            <textarea id='Action_Week_1_Question1_textArea' cols='40' rows='8' data-mini='true' placeholder='Enter your notes here'></textarea>        </div>        <div data-role='fieldcontain'>            <fieldset data-role='controlgroup' data-type='horizontal' data-mini='true'>                <legend>Status</legend>                <input data-mini='true' type='radio' name='Action_Week_1_Question1_actions' id='Action_Week_1_Question1_status' value='on' checked='checked' />                <label for='Action_Week_1_Question1_status'>To Do</label>                <input data-mini='true' type='radio' name='Action_Week_1_Question1_actions' id='Action_Week_1_Question1_inprogress' value='off' />                <label for='Action_Week_1_Question1_inprogress'>In Progress</label>                <input data-mini='true' type='radio' name='Action_Week_1_Question1_actions' id='Action_Week_1_Question1_completed' value='off' />                <label for='Action_Week_1_Question1_completed'>Completed</label>            </fieldset>        </div></p></div><div data-role='collapsible' data-collapsed='false'><h3>Make an appointment with a specialist</h3>        <p>Your pediatrician may recommend appointments with specialists.</p>        <a href='#makeAppt'> Make an appointment </a>        <div data-role='fieldcontain'>            <label for='Action_Week_1_Question2_textArea'>Notes:</label>            <textarea id='Action_Week_1_Question2_textArea' cols='40' rows='8' data-mini='true' placeholder='Enter your notes here'></textarea>        </div>        <div data-role='fieldcontain'>            <fieldset data-role='controlgroup' data-type='horizontal' data-mini='true'>                <legend>Status</legend>                <input data-mini='true' type='radio' name='Action_Week_1_Question2_actions' id='Action_Week_1_Question2_status' value='on' checked='checked' />                <label for='Action_Week_1_Question2_status'>To Do</label>                <input data-mini='true' type='radio' name='Action_Week_1_Question2_actions' id='Action_Week_1_Question2_inprogress' value='off' />                <label for='Action_Week_1_Question2_inprogress'>In Progress</label>                <input data-mini='true' type='radio' name='Action_Week_1_Question2_actions' id='Action_Week_1_Question2_completed' value='off' />                <label for='Action_Week_1_Question2_completed'>Completed</label>            </fieldset>        </div></p></div></div><div data-theme='d' data-role='footer' class='footer' data-position='fixed'></div></div><div data-role='page' id='makeAppt'><div data-role='header'><a href='index.html' data-role='button' data-icon='arrow-l' data-inline-'true'>Back</a><h1> Make an appointment </h1> </div><div data-role='content'> <p> undefined </p> <p></p>  <div data-role='collapsible' data-collapsed='false'><p><h3>Make an appointment</h3><ul data-theme='d'>    <li>        <div style='font-weight:normal'>Early intervention specialist</div>        <div data-role='fieldcontain'>            <textarea cols='40' rows='8' data-mini='true'>take notes</textarea>        </div>    </li>    <li>        <div style='font-weight:normal'>Developmental pediatrician</div>        <div data-role='fieldcontain'>            <textarea cols='40' rows='8' data-mini='true'>take notes</textarea>        </div>    </li>    <li>        <div style='font-weight:normal'>Neurologist</div>        <div data-role='fieldcontain'>            <textarea cols='40' rows='8' data-mini='true'>take notes</textarea>        </div>    </li>    <li>        <div style='font-weight:normal'>Psychiatrist</div>        <div data-role='fieldcontain'>            <textarea cols='40' rows='8' data-mini='true'>take notes</textarea>        </div>    </li>    <li>        <div style='font-weight:normal'>Psychologist</div>        <div data-role='fieldcontain'>            <textarea cols='40' rows='8' data-mini='true'>take notes</textarea>        </div>    </li>    <li>        <div style='font-weight:normal'>Audiologist</div>        <div data-role='fieldcontain'>            <textarea cols='40' rows='8' data-mini='true'>take notes</textarea>        </div>    </li>    <li>        <div style='font-weight:normal'>Speech and Language therapist</div>        <div data-role='fieldcontain'>            <textarea cols='40' rows='8' data-mini='true'>take notes</textarea>        </div>    </li>    <li>        <div style='font-weight:normal'>Occupational therapist</div>        <div data-role='fieldcontain'>            <textarea cols='40' rows='8' data-mini='true'>take notes</textarea>        </div>    </li></ul></div></div><div data-theme='d' data-role='footer' class='footer' data-position='fixed'></div></div><div data-role='page' id='Resource_About_Diagnosis_1'><div data-role='header'><a href='index.html' data-role='button' data-icon='arrow-l' data-inline-'true'>Back</a><h1> Why does my child need a diagnosis of autism? </h1> </div><div data-role='content'> <p> <emphasis>You may wonder: why does my child need a diagnosis of autism? That&aposs a fair question to ask - especially when no one is able to offer you a cure.</emphais>.<br/>A thorough and detailed diagnosis provides important information about your child&aposs behavior and development. It can help create a roadmap for treatment by identifying your child&aposs specific strengths and challenges and providing useful information about which needs and skills should be targeted for effective intervention. A diagnosis is often required to access autism-specific services through early intervention programs or your local school district </p> <p></p>  </div><div data-theme='d' data-role='footer' class='footer' data-position='fixed'></div></div><div data-role='page' id='Resource_About_Diagnosis_2'><div data-role='header'><a href='index.html' data-role='button' data-icon='arrow-l' data-inline-'true'>Back</a><h1> How is autism diagnosed? </h1> </div><div data-role='content'> <p> Presently, there is not a medical test for autism a diagnosis is based on observed behavior and educational and psychological testing. As the symptoms of autism vary, so do the routes to obtaining a diagnosis. You may have raised questions with your pediatrician. Some children are identified as having developmental delays before obtaining a diagnosis of autism and may already receive some early intervention or special education services. Unfortunately, parents’ concerns are sometimes not taken seriously by their doctor and a diagnosis is delayed. Autism Speaks and other autism-related organizations are working hard to educate parents and physicians, so that children with autism are identified as early as possible.<br/>From birth to at least 36 months of age, every child should be screened for developmental milestones during routine visits. The American Academy of Pediatrics recommends that all children be screened for autism at their 18- and 24-month well-baby checkups. If concerns about a child’s development are raised, his or her doctor should refer the child to Early Intervention and a specialist for a developmental evaluation. Lead exposure and hearing screenings should also be performed. Following the results, your child may be referred to a specialist, usually a <strong>Developmental Pediatrician</strong>, a <strong>Neurologist</strong>, a <strong>Psychiatrist</strong> or a <strong>Psychologist</strong>, for further evaluation. The team of specialists that evaluate your child’s condition may also include an Audiologist, to rule out hearing loss, a <strong>Speech & Language Therapist</strong>, to determine language skills and needs, and an <strong>Occupational Therapist</strong> to evaluate physical and motor skills.<br/>A multi-disciplinary evaluation is important for diagnosing autism and other challenges that often accompany autism, such as delays in motor skills. If your child has not been evaluated by a multi-disciplinary team, you will want to make sure further evaluations are conducted so that you can learn as much as possible about your child’s individual strengths and needs. For more information you can visit the Autism Treatment Network. </p> <p></p>  </div><div data-theme='d' data-role='footer' class='footer' data-position='fixed'></div></div>
+</body>
+</html>
+

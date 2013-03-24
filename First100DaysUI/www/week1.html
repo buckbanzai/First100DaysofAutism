@@ -54,7 +54,7 @@
     <!-- /footer -->
 </div>
 
-<script src="Actions/week1.js" type="text/javascript"></script>
+<script src="Actions/About.DiagnosisProcess.1.js" type="text/javascript"></script>
 
 <script id="taskTemplate" type="text/x-jquery-tmpl">
     <!-- This will be loaded dynamically //-->
@@ -70,8 +70,8 @@
     var loadTaskTemplate = function() {
         $("#taskTemplate").load("partials/task.html", function(data) {
             var addition = "";
-            for (var i = 0; i < week1.tasks.length; i++) {
-                addition += Mustache.render(data, week1.tasks[i]);
+            for (var i = 0; i < page1.tasks.length; i++) {
+                addition += Mustache.render(data, page1.tasks[i]);
             }
             $("#tasks").html(addition);
             $("#tasks").trigger("create").collapsibleset('refresh');
