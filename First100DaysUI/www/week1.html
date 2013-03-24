@@ -3,7 +3,10 @@
 <head>
     <title>Action Plan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" type="text/css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="themes/theme.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css"
+          type="text/css">
     <link rel="stylesheet" href="app.css" type="text/css">
     <script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript">
     </script>
@@ -14,12 +17,12 @@
 <body>
 <div data-role="page" data-theme="d" id="week1-tasks" data-dom-cache="false">
     <div data-role="header" data-theme="d" data-icon="bars">
+        <a href="index.html" data-role="button" data-icon="arrow-l" data-inline="true">Back</a>
         <h1>Action Plan - Week 1</h1>
     </div>
     <!-- /header -->
 
     <div data-role="content">
-        <form action="#" method="get">
             <div data-role="collapsible" data-theme="d" data-content-theme="d" id="tasks">
                 <div data-role="collapsible" data-collapsed="false">
                     <h3>Task Name Here</h3>
@@ -45,7 +48,6 @@
                     </div>
                 </div>
             </div>
-        </form>
     </div>
     <!-- /content -->
 
