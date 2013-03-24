@@ -4,7 +4,7 @@
     <title>Resources</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="themes/theme.min.css" />
+    <link rel="stylesheet" href="themes/theme.min.css"/>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css"
           type="text/css">
     <link rel="stylesheet" href="app.css" type="text/css">
@@ -20,22 +20,60 @@
 <div data-role="page" data-theme="d" id="home-page" class="grid-page" data-dom-cache="false">
     <div data-role="header" data-theme="d" data-icon="bars">
         <a data-role="button" data-icon="arrow-l" data-inline="true" data-rel="back">Back</a>
+
         <h1>Resources</h1>
     </div>
     <div data-role="content">
-        <!-- PUT CONTENT HERE //-->
+        <h3>Why does my child need a diagnosis of autism?"</h3>
+
+        <p>
+            <emphasis>You may wonder: why does my child need a diagnosis of autism? That&apos;s a fair question to ask -
+                especially when no one is able to offer you a cure.
+            </emphasis>
+            .<br/>A thorough and detailed diagnosis provides important information about your child&apos;s behavior and
+            development. It can help create a roadmap for treatment by identifying your child&apos;s specific strengths
+            and challenges and providing useful information about which needs and skills should be targeted for
+            effective intervention. A diagnosis is often required to access autism-specific services through early
+            intervention programs or your local school district",
+        </p>
+
+        <h3>How is autism diagnosed?</h3>
+
+        <p>
+            Presently, there is not a medical test for autism a diagnosis is based on observed behavior and educational
+            and psychological testing. As the symptoms of autism vary, so do the routes to obtaining a diagnosis. You
+            may have raised questions with your pediatrician. Some children are identified as having developmental
+            delays before obtaining a diagnosis of autism and may already receive some early intervention or special
+            education services. Unfortunately, parents&apos; concerns are sometimes not taken seriously by their doctor
+            and a diagnosis is delayed. Autism Speaks and other autism-related organizations are working hard to educate
+            parents and physicians, so that children with autism are identified as early as possible.<br/>From birth to
+            at least 36 months of age, every child should be screened for developmental milestones during routine
+            visits. The American Academy of Pediatrics recommends that all children be screened for autism at their 18-
+            and 24-month well-baby checkups. If concerns about a child&apos;s development are raised, his or her doctor
+            should refer the child to Early Intervention and a specialist for a developmental evaluation. Lead exposure
+            and hearing screenings should also be performed. Following the results, your child may be referred to a
+            specialist, usually a <strong>Developmental Pediatrician</strong>, a <strong>Neurologist</strong>, a
+            <strong>Psychiatrist</strong> or a <strong>Psychologist</strong>, for further evaluation. The team of
+            specialists that evaluate your child&apos;s condition may also include an Audiologist, to rule out hearing
+            loss, a <strong>Speech & Language Therapist</strong>, to determine language skills and needs, and an
+            <strong>Occupational Therapist</strong> to evaluate physical and motor skills.<br/>A multi-disciplinary
+            evaluation is important for diagnosing autism and other challenges that often accompany autism, such as
+            delays in motor skills. If your child has not been evaluated by a multi-disciplinary team, you will want to
+            make sure further evaluations are conducted so that you can learn as much as possible about your child&apos;s
+            individual strengths and needs. For more information you can visit the Autism Treatment Network.
+        </p>
     </div>
     <div class="footer" data-role="footer" data-theme="d" data-position="fixed">
     </div>
 </div>
 <script type="text/javascript">
-    var reloadFooter = function() {
-        $(".footer").load("partials/footer.html", function() {
+    var reloadFooter = function () {
+        $(".footer").load("partials/footer.html", function () {
             $(".footer").trigger("create");
         });
     }
 
-    $(document).bind("pageinit", function(){
+    $(document).bind("pageinit", function () {
         reloadFooter();
     });
 
