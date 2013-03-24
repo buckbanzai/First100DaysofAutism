@@ -3,10 +3,6 @@
     font-family: 'Segoe UI', sans-serif
 }
 
-span {
-    font-style: italic
-}
-
 /* First breakpoint is 768px. 3 column layout. Tiles 250x250 pixels at the breakpoint. */
 @media all and (min-width: 768px){
     .grid-page .ui-content {

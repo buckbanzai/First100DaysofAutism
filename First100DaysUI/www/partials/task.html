@@ -1,0 +1,23 @@
+<div data-role="collapsible">
+    <h3>{{{header}}}</h3>
+
+    <p>{{{text}}}</p>
+
+    <div data-role="fieldcontain">
+        <label for="textarea">Notes:</label>
+        <textarea cols="40" rows="8" name="textarea" id="textarea" data-mini="true"
+                  placeholder="Enter your notes here"></textarea>
+    </div>
+
+    <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <legend>Status:</legend>
+            <input type="radio" name="{{id}}-status" id="{{id}}-to-do" value="on" checked="checked"/>
+            <label for="{{id}}-to-do">ToDo</label>
+            <input type="radio" name="{{id}}-status" id="{{id}}-in-progress" value="off"/>
+            <label for="{{id}}-in-progress">In Progress</label>
+            <input type="radio" name="{{id}}-status" id="{{id}}-completed" value="other"/>
+            <label for="{{id}}-completed">Completed</label>
+        </fieldset>
+    </div>
+</div>

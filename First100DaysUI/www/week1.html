@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home
-    </title>
+    <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" type="text/css">
     <link rel="stylesheet" href="app.css" type="text/css">
     <script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript">
     </script>
-    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"
-        type="text/javascript">
-    </script>
-    <script src="week1.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
     <script type="text/javascript">
         window.currentTeam = 0;
         $(document).bind("mobileinit", function () {
@@ -19,70 +16,82 @@
             $.support.cors = true;
             $.mobile.allowCrossDomainPages = true;
         });
-
-
-
-
     </script>
 </head>
 <body>
-    <div data-role="page" data-theme="d" id="week1">
-        <div data-role="header" data-theme="d" data-icon="bars">
-            <h1>Workplan - Week 1</h1>
-        </div>
-        <!-- /header -->
-
-        <div data-role="content">
-            <form>
-                <div data-role="collapsible" data-collapsed="false" data-theme="d" data-content-theme="d">
-                    <h4>Activity of the day of some shit</h4>
-                    <ul data-role="listview" data-theme="d">
-
-                        <li>
-                            <div style='font-weight:normal'>sdf, jsdfkljhsdfkljhsd lkjhdsk fljsdhfkljsdhf kljsdh kjlsdhf skdjlhf ksdjhfksdj ksdj sdf ksdljf sld lsdfj dsl</div>
-
-                            <div data-role="fieldcontain">
-                            <fieldset data-style='d'  data-role='controlgroup' data-type='horizontal'>
-                                <legend id='asd'>Status</legend>
-                                <input data-mini='true' type='radio' name='blah1' id='blah1' value='on' checked='checked' />
-                                <label for='blah1'>To Do</label>
-                        
-                                <input data-mini='true' type='radio' name='blah1' id='blah2' value='off' />
-                                <label for='blah2'>In Progress</label>
-
-                                <input data-mini='true' type='radio' name='blah1' id='blah23' value='off' />
-                                <label for='blah23'>Completed</label>
-
-                                <input data-mini='true' type='radio' name='blah1' id='blah4' value='off' />
-                                <label for='blah4'>N/A</label>
-                            </fieldset>
-                            </div>
-
-                            <div data-role="fieldcontain">
-                                <textarea cols='40' rows='8' data-mini="true">take notes</textarea>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-            </form>
-        </div>
-        <!-- /content -->
-        <div data-role="footer" data-theme="none">
-            <h6>Hackathon for Autism - Eventbrite</h6>
-        </div>
-        <!-- /footer -->
+<div data-role="page" data-theme="d" id="week1-tasks">
+    <div data-role="header" data-theme="d" data-icon="bars">
+        <h1>Action Plan - Week 1</h1>
     </div>
+    <!-- /header -->
 
-    <style>
-        #asd {
-        }
-    </style>
+    <div data-role="content">
+        <form action="#" method="get">
+            <div data-role="collapsible-set" data-theme="d" data-content-theme="d" id="tasks">
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3>Task Name Here</h3>
 
-    <script>
-        // $("ul").append("<li data-role='fieldcontain'>  <fieldset data-style='d' data-role='controlgroup' data-type='horizontal'> <legend id='asd'>Status</legend> <input type='radio' name='blah1' id='blah1' value='on' checked='checked'/><label for='blah1'>To Do</label><input type='radio' name='blah1' id='blah2' value='off'/><label for='blah2'>Completed</label> </fieldset> </li>").trigger("create");
-    </script>
+                    <p>Long <strong>formatted</strong> text goes here, and continues on and on and on and on with detailed task description</p>
 
+                    <div data-role="fieldcontain">
+                        <label for="textarea">Textarea:</label>
+                        <textarea cols="40" rows="8" name="textarea" id="textarea" data-mini="true"
+                                  placeholder="Enter your notes here"></textarea>
+                    </div>
+
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                            <legend>Status:</legend>
+                            <input type="radio" name="task-1-status" id="task-1-to-do" value="on" checked="checked"/>
+                            <label for="task-1-to-do">ToDo</label>
+                            <input type="radio" name="task-1-status" id="task-1-in-progress" value="off"/>
+                            <label for="task-1-in-progress">In Progress</label>
+                            <input type="radio" name="task-1-status" id="task-1-completed" value="other"/>
+                            <label for="task-1-completed">Completed</label>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- /content -->
+
+    <div data-role="footer" data-theme="none" class="footer">
+    </div>
+    <!-- /footer -->
+</div>
+
+<script src="Actions/week1.js" type="text/javascript"></script>
+
+<script id="taskTemplate" type="text/x-jquery-tmpl">
+    <!-- This will be loaded dynamically //-->
+</script>
+
+<script type="text/javascript">
+    var reloadFooter = function () {
+        $(".footer").load("partials/footer.html", function () {
+            $(".footer").trigger("create");
+        });
+    }
+
+    var loadTaskTemplate = function() {
+        $("#taskTemplate").load("partials/task.html", function(data) {
+            var addition = "";
+            for (var i = 0; i < week1.tasks.length; i++) {
+                addition += Mustache.render(data, week1.tasks[i]);
+            }
+            $("#tasks").append(addition);
+            $("#tasks").trigger("create").collapsibleset('refresh');
+        })
+    }
+
+
+    $(document).bind("pageinit", function () {
+        reloadFooter();
+        loadTaskTemplate();
+    });
+
+</script>
 </body>
 </html>
 
