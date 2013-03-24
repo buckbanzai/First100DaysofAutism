@@ -80,7 +80,7 @@
             for (var i = 0; i < week1.tasks.length; i++) {
                 addition += Mustache.render(data, week1.tasks[i]);
             }
-            $("#tasks").append(addition);
+            $("#tasks").html(addition);
             $("#tasks").trigger("create").collapsibleset('refresh');
         })
     }

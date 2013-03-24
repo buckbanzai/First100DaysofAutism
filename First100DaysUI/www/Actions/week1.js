@@ -20,7 +20,8 @@ var week1 = {
             /* This item is a single task, there isn't anything else underneath it, I added pagetype=task */
             id: "Action.Week.1.Question1",
             header: "Make an appointment with your child&apos;s pediatrician",
-            text: "Make an appointment with your child&apos;s pediatrician"
+            text: "Make an appointment with your child&apos;s pediatrician",
+            pagetype: "action"
         },
         {
             /* This item goes to another page with several child tasks on it */
@@ -59,8 +60,25 @@ var week1 = {
                     ,
                     {
                         text: "Occupational therapist"
-                    }]
-            }
-       }
+                    }
+                ]
+            },
+            children: [
+                {
+                    /* This item is a single task, there isn't anything else underneath it, I added pagetype=task */
+                    id: "Action.Week.1.Question1",
+                    header: "",
+                    text: "Make an appointment with your child&apos;s pediatrician",
+                    subtext: "",
+                    pagetype: "task"
+                },
+                {
+                    header: "Something Else",
+                    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nibh tellus, iaculis vitae blandit id, adipiscing dignissim lectus. Maecenas purus elit, ultricies vel gravida vitae, auctor id leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus ac nisi enim, sit amet consequat velit. Morbi ac massa velit, in facilisis sem. Suspendisse ante metus, fermentum nec tempus in, fermentum ac lorem. Fusce eget consequat tortor.",
+                    subtext: "Some footer note"
+                }
+            ]
+
+        }
     ]
 };
