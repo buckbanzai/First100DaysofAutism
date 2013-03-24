@@ -17,6 +17,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="www\app.css" />
+    <Content Include="www\week1.html" />
+    <Content Include="www\week1.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="www\config.xml" />
