@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" type="text/css">
+    <link rel="stylesheet" href="app.css" type="text/css">
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript">
+    </script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"
+        type="text/javascript">
+    </script>
+    <script src="week1.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        window.currentTeam = 0;
+        $(document).bind("mobileinit", function () {
+            // Make your jQuery Mobile framework configuration changes here!
+            $.support.cors = true;
+            $.mobile.allowCrossDomainPages = true;
+        });
+
+
+
+
+    </script>
+</head>
+<body>
+    <div data-role="page" data-theme="d" id="week1">
+        <div data-role="header" data-theme="d" data-icon="bars">
+            <h1>Workplan - Week 1</h1>
+        </div>
+        <!-- /header -->
+
+        <div data-role="content">
+            <form>
+                <div data-role="collapsible" data-collapsed="false" data-theme="d" data-content-theme="d">
+                    <h4>Activity of the day of some shit</h4>
+                    <ul data-role="listview" data-theme="d">
+
+                        <li>
+                            <div style='font-weight:normal'>sdf, jsdfkljhsdfkljhsd lkjhdsk fljsdhfkljsdhf kljsdh kjlsdhf skdjlhf ksdjhfksdj ksdj sdf ksdljf sld lsdfj dsl</div>
+
+                            <div data-role="fieldcontain">
+                            <fieldset data-style='d'  data-role='controlgroup' data-type='horizontal'>
+                                <legend id='asd'>Status</legend>
+                                <input data-mini='true' type='radio' name='blah1' id='blah1' value='on' checked='checked' />
+                                <label for='blah1'>To Do</label>
+                        
+                                <input data-mini='true' type='radio' name='blah1' id='blah2' value='off' />
+                                <label for='blah2'>In Progress</label>
+
+                                <input data-mini='true' type='radio' name='blah1' id='blah23' value='off' />
+                                <label for='blah23'>Completed</label>
+
+                                <input data-mini='true' type='radio' name='blah1' id='blah4' value='off' />
+                                <label for='blah4'>N/A</label>
+                            </fieldset>
+                            </div>
+
+                            <div data-role="fieldcontain">
+                                <textarea cols='40' rows='8' data-mini="true">take notes</textarea>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </form>
+        </div>
+        <!-- /content -->
+        <div data-role="footer" data-theme="none">
+            <h6>Hackathon for Autism - Eventbrite</h6>
+        </div>
+        <!-- /footer -->
+    </div>
+
+    <style>
+        #asd {
+        }
+    </style>
+
+    <script>
+        // $("ul").append("<li data-role='fieldcontain'>  <fieldset data-style='d' data-role='controlgroup' data-type='horizontal'> <legend id='asd'>Status</legend> <input type='radio' name='blah1' id='blah1' value='on' checked='checked'/><label for='blah1'>To Do</label><input type='radio' name='blah1' id='blah2' value='off'/><label for='blah2'>Completed</label> </fieldset> </li>").trigger("create");
+    </script>
+
+</body>
+</html>
+
