@@ -19,11 +19,23 @@
 <body>
 <div data-role="page" data-theme="d" id="home-page" class="grid-page" data-dom-cache="false">
     <div data-role="header" data-theme="d" data-icon="bars">
-        <a href="index.html" data-role="button" data-icon="arrow-l" data-inline="true" rel="external">Back</a>
         <h1>Welcome</h1>
     </div>
     <div data-role="content">
-        <!-- PUT CONTENT HERE //-->
+        <p style="text-align: center"><img src="assets/autismspeaks.png" width="100"></p>
+        <form action="index.html" method="get">
+            <h2>Welcome!</h2>
+
+            <p>This app is built for parents! Sign up for e-mail reminders here!</p>
+
+            <div data-role="fieldcontain">
+                <label for="mail">Your e-mail:</label>
+                <input type="text" name="mail" id="mail" value=""  />
+            </div>
+            <fieldset data-role="fieldcontain" style="text-align: center">
+                <div><button type="submit" data-theme="a">Get Started!</button></div>
+            </fieldset>
+        </form>
     </div>
     <div class="footer" data-role="footer" data-theme="d" data-position="fixed">
     </div>
