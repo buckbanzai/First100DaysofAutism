@@ -1,0 +1,9 @@
+/* Overrides */
+
+.hero-unit {
+    padding:15px;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 25px;
+    color: inherit;
+}
