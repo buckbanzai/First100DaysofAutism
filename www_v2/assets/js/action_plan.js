@@ -39,12 +39,24 @@ window.First100Days.ActionPlan = function(spec) {
         for(i in my.tasks) {
             var t = my.tasks[i];
             if (t.get('id') === id) {
-                return t
+                return t;
             }
         }
         return null;
     };
     that.taskWith = taskWith;
+
+    var tasksForWeek = function(week_num) {
+        var matching = [];
+        for(i in my.tasks) {
+            var t = my.tasks[i];
+            if (t.get('week') === week_num) {
+                matching.push(t);
+            }
+        }
+        return matching;
+    };
+    that.tasksForWeek = tasksForWeek;
 
     var mergeTask = function(taskSpec) {
         if (taskSpec) {
